@@ -7,13 +7,10 @@ import Navbar from "../src/components/Navbar";
 import PlanHike from './pages/PlanHike';
 import Planned from './pages/PlannedHikes';
 
-import { removeHike, getUserProfile } from './utils/API';
-import {Redirect} from 'react-router-dom';
-
 function App() {
   return (
     <Router>
-    
+      <div>
       <Navbar />
       <Switch>
         <Route exact path = "/" component = {Home} />
@@ -25,7 +22,7 @@ function App() {
         <Route render = {() => <h2>404 page!</h2>} />
       </Switch>
 
-     
+     </div>
   </Router>
 
   )
