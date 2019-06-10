@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { removeHike, getSavedHikes } from '../utils/API';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 import Col from "../components/Col";
 import Row from "../components/Row";
@@ -31,7 +31,6 @@ class Saved extends Component {
   render() {
     return(
       <React.Fragment>
-        <Route exact path = "/addhike" component = {AddaHike} />
         <div className = "jumbotron jumbotron-fluid text-center"
          style = {{
           backgroundImage: 'url(http://www.hikinghydration.com/wp-content/uploads/2015/09/Is-Hiking-or-Running-Better.jpg)',
