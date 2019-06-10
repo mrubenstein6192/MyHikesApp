@@ -42,6 +42,7 @@ class Saved extends Component {
           color: "white",
           fontWeight: "bold"
         }}>Completed Hikes</h1>
+        
           <a className="btn btn-lg btn-info text-center my-2" href="/addhike">Add a Completed Hike!</a>
         </div>
        <div className = "container-fluid my-3">
