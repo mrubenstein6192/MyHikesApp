@@ -1,9 +1,6 @@
 import React from 'react';
 import Research from '../components/Research';
 
-
-
-
 function Home() {
   return (
     <React.Fragment>

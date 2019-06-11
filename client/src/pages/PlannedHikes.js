@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { removePlannedHike, getPlannedHikes } from '../utils/API';
+import { Link } from 'react-router-dom';
 
 
 import Col from "../components/Col";
@@ -42,7 +43,7 @@ class Planned extends Component {
             color: "white",
             fontWeight: "bold"
           }}>To-Do List</h1>
-          <a className="btn btn-lg btn-info text-center my-2" href="/planhike">Plan a Future Hike!</a>
+          <Link className="btn btn-lg btn-info text-center my-2" to="/planhike">Plan a Future Hike!</Link>
         </div>
        <div className = "container-fluid my-3">
          <Row>

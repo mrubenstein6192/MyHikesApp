@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { removeHike, getSavedHikes } from '../utils/API';
+import { Link } from 'react-router-dom';
 
 
 import Col from "../components/Col";
@@ -43,7 +44,7 @@ class Saved extends Component {
           fontWeight: "bold"
         }}>Completed Hikes</h1>
         
-          <a className="btn btn-lg btn-info text-center my-2" href="/addhike">Add a Completed Hike!</a>
+          <Link className="btn btn-lg btn-info text-center my-2" to="/addhike">Add a Completed Hike!</Link>
         </div>
        <div className = "container-fluid my-3">
          <Row>
