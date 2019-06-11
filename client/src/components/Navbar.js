@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Navbar } from 'react-bootstrap';
 
-const Navbar = () => {
+const MyNavbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <Navbar className="navbar nav-toggle hide-md navbar-expand-sm navbar-dark bg-dark">
       <Link className="navbar-brand" to="/">
         MyHikes
       </Link>
@@ -36,8 +37,8 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-    </nav>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default MyNavbar;

@@ -53,7 +53,7 @@ class Saved extends Component {
            ) : (
              this.state.hikeList.map(hike => {
                return (
-                 <Col key = {hike._id} md = {3}>
+                 <Col key = {hike._id} sm = {6} md = {3}>
                    <div className = "card"
                    style = {{
                     boxShadow: "2px 6px 10px 2px rgba(0,0,0,0.2)",
