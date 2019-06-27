@@ -72,7 +72,7 @@ class Saved extends Component {
                       <p><strong>Overall Experience: </strong>{hike.experience}</p>
                       <button onClick={() => this.handleRemoveHike(hike._id)}
                       className = "btn btn-danger btn-sm my-2">Remove Hike From List Entirely</button>
-                      <a className = "btn btn-success btn-sm my-2" href = "/addhike" onClick={() => this.handleRemoveHike(hike._id)}>Update This Hike From Scratch</a>
+                      <Link className = "btn btn-success btn-sm my-2" href = "/addhike" onClick={() => this.handleRemoveHike(hike._id)}>Update This Hike From Scratch</Link>
                       
                    </div>
                    </div>
