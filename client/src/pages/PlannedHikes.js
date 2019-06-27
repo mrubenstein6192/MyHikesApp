@@ -66,7 +66,7 @@ class Planned extends Component {
                     }}>
                       <p><strong>Name: </strong>{planned.name}</p>
                       <p><strong>Location: </strong>{planned.location}</p>
-                      <Link className = "btn btn-success text-center my-2" href = "/addhike" onClick={() => this.handleRemoveHike(planned._id)}>I Have Completed This Hike!</Link>
+                      <Link className = "btn btn-success text-center my-2" to = "/addhike" onClick={() => this.handleRemoveHike(planned._id)}>I Have Completed This Hike!</Link>
                       <button className = "btn btn-danger" onClick={() => this.handleRemoveHike(planned._id)}>I Don't Want to do This Hike Anymore </button>
                    </div>
                    </div>
