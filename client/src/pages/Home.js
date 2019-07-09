@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Research from '../components/Research';
+import LoginButton from '../components/LoginButton';
+import UserContext from '../utils/UserContext';
+import { getUserProfile } from "../utils/API";
+import { Redirect } from 'react-router-dom';
 
-function Home() {
+
+
+class Home extends Component  {
+
+  componentDidMount(props) {
+    // read from url bar
+    const userId = (this.props.location.search)
+      ? this.props.location.search.split("=").pop()
+      // if user id not in search bar, use id in userContext
+      : (this.context.id)
+        ? this.context.id
+        : "";
+
+    if (userId) {
+      getUserProfile(userId)
+        .then(({ data: userData }) => {
+          this.context.setLogin(userData);
+        });
+    } else {
+      this.context.setLogout();
+    };
+  };
+
+  render() {
+    if (this.context.isLoggedIn) {
+      return <Redirect to='/' />
+    };
+
   return (
     <React.Fragment>
       <div
@@ -16,7 +47,9 @@ function Home() {
           style = {{
             fontWeight: 'bold',
             color: 'black',
+            marginBottom: '10px'
           }}>Welcome to MyHikes!</h1>
+          
           
         </div>
 
@@ -52,4 +85,8 @@ function Home() {
     </React.Fragment>
   );
 }
+}
+
+Home.contextType = UserContext;
+
 export default Home;

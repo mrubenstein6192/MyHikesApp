@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { removePlannedHike, getPlannedHikes } from '../utils/API';
+import { removePlannedHike, getPlannedHikes, getUserProfile } from '../utils/API';
 import { Link } from 'react-router-dom';
-
+import UserContext from '../utils/UserContext';
 
 import Col from "../components/Col";
 import Row from "../components/Row";
@@ -16,16 +16,20 @@ class Planned extends Component {
   }
 
   handleGetPlannedHikes = () => {
-    getPlannedHikes()
-    .then(({ data: hikeListTwo}) => {
-      this.setState({ hikeListTwo });
+    getUserProfile()
+    
+    .then(({ data: plannedHikes}) => {
+      this.setState({ plannedHikes });
     })
     .catch(err => console.log(err));
   };
 
   handleRemoveHike = plannedId => {
     removePlannedHike(plannedId)
-    .then(this.handleGetPlannedHikes)
+    .then(getUserProfile)
+    .then(({ data: {plannedHikes} }) => {
+      this.setState({plannedHikes});
+    })
     .catch(err => console.log(err));
   };
 
@@ -80,4 +84,6 @@ class Planned extends Component {
     )
   }
 }
+
+Planned.contextType = UserContext;
 export default Planned;

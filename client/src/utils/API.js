@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 // set up functions for talking to our backend
-
+export const getUserProfile = () => {
+  return axios.get('/api/user')
+};
 
 export const getSavedHikes = () => {
   return axios.get('/api/hikes')
@@ -41,6 +43,10 @@ export const removePlannedHike = (hikeId) => {
   return axios.delete(`/api/plannedhikes/${hikeId}`)
 }
 
+export const loginCheck = () => {
+  return axios.get('/auth/status');
+}
+
 
 export default {
   getSavedHikes,
@@ -51,5 +57,7 @@ export default {
   planHike,
   getPlannedHikes,
   getPlannedHikeById,
-  removePlannedHike
+  removePlannedHike,
+  loginCheck,
+  getUserProfile
 }

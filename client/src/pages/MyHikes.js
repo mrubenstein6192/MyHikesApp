@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { removeHike, getSavedHikes } from '../utils/API';
+import { removeHike, getSavedHikes, getUserProfile } from '../utils/API';
 import { Link } from 'react-router-dom';
+import UserContext from '../utils/UserContext';
 
 
 import Col from "../components/Col";
@@ -8,28 +9,43 @@ import Row from "../components/Row";
 
 class Saved extends Component {
   state = {
-    hikeList: []
-  };
+    hikeList: [],
+  }
+
+  handleSavedHikes = () => {
+    this.setState({
+      isShowing: 'Saved Hikes'
+    })
+  }
 
   componentDidMount() {
     this.handleGetSavedHikes();
   }
 
   handleGetSavedHikes = () => {
-    getSavedHikes()
-    .then(({ data: hikeList}) => {
-      this.setState({ hikeList });
+    getUserProfile()
+    
+    .then(({ data: hikes}) => {
+      this.setState({ hikes });
     })
     .catch(err => console.log(err));
   };
 
   handleRemoveHike = hikeId => {
     removeHike(hikeId)
-    .then(this.handleGetSavedHikes)
+    .then(getUserProfile)
+    .then(({ data: {hikes} }) => {
+      this.setState({hikes});
+    })
     .catch(err => console.log(err));
   };
 
   render() {
+
+    const isShowing = this.state.isShowing;
+    let showing;
+    let header;
+
     return(
       <React.Fragment>
         <div className = "jumbotron jumbotron-fluid text-center"
@@ -87,4 +103,5 @@ class Saved extends Component {
   }
 }
 
+Saved.contextType = UserContext;
 export default Saved;
