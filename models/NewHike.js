@@ -25,7 +25,7 @@ const HikeSchema = new Schema({
     type: String
   },
   dogs: {
-    type: Number
+    type: String
   },
   experience: {
     type: String

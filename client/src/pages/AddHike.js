@@ -184,7 +184,7 @@ class AddaHike extends Component {
                 <div className="form-group">
                   <label htmlFor="dogs">Dogs</label>
                   <input 
-                    type="number"
+                    type="text"
                     onChange={this.handleInputChange}
                     value={this.state.dogs}
                     name="dogs"
