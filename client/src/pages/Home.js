@@ -51,7 +51,8 @@ class Home extends Component  {
           style = {{
             fontWeight: 'bold',
             color: 'black',
-            marginBottom: '10px'
+            marginBottom: '10px',
+            marginTop: "25px"
           }}>Welcome to MyHikes!</h1>
           
           
