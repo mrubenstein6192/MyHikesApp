@@ -1,30 +1,34 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
-import UserContext from '../utils/UserContext';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
+// import UserContext from '../utils/UserContext';
+// import LoginButton from './LoginButton';
+// import LogoutButton from './LogoutButton';
 
 const MyNavbar = () => {
 
-  const userContext = useContext(UserContext);
-  useEffect(() => {
-    userContext.checkLogin();
-  }, []);
+  // const userContext = useContext(UserContext);
+  // useEffect(() => {
+  //   userContext.checkLogin();
+  // }, []);
 
-  let button;
+  // let button;
 
-  if (!userContext.isLoggedIn) {
-    button = <LoginButton />
-  } else {
-    button = <LogoutButton />
-  }
+  // if (!userContext.isLoggedIn) {
+  //   button = <LoginButton />
+  // } else {
+  //   button = <LogoutButton />
+  // }
 
   return (
     <Navbar fixed='top' className='px-5 bg-dark navbar-dark' expand="md">
        <Navbar.Brand
+      
       as={Link}
-      to={{pathname: '/', state: {isLoggedIn: userContext.isLoggedIn}}}
+      to={{pathname: '/'}}
+      
+      // , state: {isLoggedIn: userContext.isLoggedIn}}}
+
       >MyHikes
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -56,11 +60,11 @@ const MyNavbar = () => {
             </Link>
           </li>
         </ul>
-        <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
+        {/* <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'> */}
         <Nav>
-          {button}
+          {/* {button} */}
         </Nav>
-      </Navbar.Collapse>
+      {/* </Navbar.Collapse> */}
       </Navbar.Collapse>
     </Navbar>
   );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { removeHike, getSavedHikes, getUserProfile } from '../utils/API';
 import { Link } from 'react-router-dom';
-import UserContext from '../utils/UserContext';
+// import UserContext from '../utils/UserContext';
 
 
 import Col from "../components/Col";
@@ -12,39 +12,35 @@ class Saved extends Component {
     hikeList: [],
   }
 
-  handleSavedHikes = () => {
-    this.setState({
-      isShowing: 'Saved Hikes'
-    })
-  }
+  // handleSavedHikes = () => {
+  //   this.setState({
+  //     isShowing: 'Saved Hikes'
+  //   })
+  // }
 
   componentDidMount() {
     this.handleGetSavedHikes();
   }
 
   handleGetSavedHikes = () => {
-    getUserProfile()
-    
-    .then(({ data: hikes}) => {
-      this.setState({ hikes });
+    getSavedHikes()
+    .then(({ data: hikeList}) => {
+      this.setState({ hikeList });
     })
     .catch(err => console.log(err));
   };
 
   handleRemoveHike = hikeId => {
     removeHike(hikeId)
-    .then(getUserProfile)
-    .then(({ data: {hikes} }) => {
-      this.setState({hikes});
-    })
+    .then(this.handleGetSavedHikes)
     .catch(err => console.log(err));
   };
 
   render() {
 
-    const isShowing = this.state.isShowing;
-    let showing;
-    let header;
+    // const isShowing = this.state.isShowing;
+    // let showing;
+    // let header;
 
     return(
       <React.Fragment>
@@ -103,5 +99,5 @@ class Saved extends Component {
   }
 }
 
-Saved.contextType = UserContext;
+// Saved.contextType = UserContext;
 export default Saved;
