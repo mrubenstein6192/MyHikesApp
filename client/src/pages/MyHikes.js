@@ -53,7 +53,8 @@ class Saved extends Component {
         }}><h1
         style = {{
           color: "white",
-          fontWeight: "bold"
+          fontWeight: "bold",
+          marginTop: "25px"
         }}>Completed Hikes</h1>
         
           <Link className="btn btn-lg btn-info text-center my-2" to="/addhike">Add a Completed Hike!</Link>

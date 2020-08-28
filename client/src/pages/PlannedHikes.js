@@ -42,7 +42,8 @@ class Planned extends Component {
           }}><h1 
           style = {{
             color: "white",
-            fontWeight: "bold"
+            fontWeight: "bold",
+            marginTop: "25px"
           }}>To-Do List</h1>
           <Link className="btn btn-lg btn-info text-center my-2" to="/planhike">Plan a Future Hike!</Link>
         </div>
